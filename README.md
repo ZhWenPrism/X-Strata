@@ -78,7 +78,7 @@ Three properties of this model shape the design.
 
 Identical curves constrain only the sum of the path lengths. X-Strata estimates the curve separation within each injection and gives the cine signal more weight as the curves separate.
 
-**P3. A second view tests the depth sign.** Two candidate vessel positions with opposite offsets $`\pm\lvert\Delta z\rvert`$ project to the same point in the anchor run. Rotating the view by $`\varphi`$ moves them $`2\lvert\Delta z\rvert\,\lvert\sin\varphi\rvert`$ apart in the partner run. With Gaussian localization error $`\sigma`$, the probability of choosing the correct side is
+**P3. A second view tests the depth sign.** Two candidate vessel positions with opposite offsets ±|Δz| project to the same point in the anchor run. Rotating the view by $`\varphi`$ moves them 2|Δz|·|sin φ| apart in the partner run. With Gaussian localization error $`\sigma`$, the probability of choosing the correct side is
 
 ```math
 q_{\mathrm{ord}}=\Phi\!\left(\frac{\lvert\Delta z\rvert\,\lvert\sin\varphi\rvert}{\sigma}\right),
@@ -138,7 +138,7 @@ which falls to chance at zero projected separation. The evaluation is consistent
 
 **Cohort.** The DSA cohort comprises 1,982 patients at three centers. Each patient contributes one index aneurysm and at most one labeled treatment procedure. Centers A and B provide 342 training, 48 validation, and 98 internal-test patients (270 test runs). Center C contributes 122 external-test patients (346 runs). Patients are partitioned before preprocessing and model selection, and the full configuration was selected on the validation patients.
 
-**Input budgets.** A method may use one run, two runs, or all available runs. The anchor is a pre-deployment treatment cine run. For two runs, the partner comes from the same procedure and maximizes $`\lvert\sin\varphi\rvert`$ among eligible pairs. Methods at the same budget share anchor runs, partners, and crops.
+**Input budgets.** A method may use one run, two runs, or all available runs. The anchor is a pre-deployment treatment cine run. For two runs, the partner comes from the same procedure and maximizes |sin φ| among eligible pairs. Methods at the same budget share anchor runs, partners, and crops.
 
 **Endpoints.**
 
@@ -202,7 +202,7 @@ which falls to chance at zero projected separation. The evaluation is consistent
 
 **Sac recovery.** With two runs, X-Strata has the highest O-Dice among the eligible baselines in both cohorts. Against projected C²RV, the paired O-Dice difference is 1.45 percentage points in A/B (95% interval −0.50 to 3.37) and 1.11 points in C (−0.63 to 2.83), so both intervals include zero. Across the 12 eligible two-run baselines, the Holm-adjusted *p*-value is below 0.05 for 10 in A/B and 11 in C. In 3D, the median absolute sac-volume error is 17.21% in A/B and 25.81% in C, and the median sac Chamfer distance is 0.34 mm and 0.48 mm.
 
-**Vessel order.** DOA is 0.49 to 0.53 across the four eligible one-run methods, consistent with P1, and 0.58 to 0.70 across the two-run methods. X-Strata exceeds all 11 end-to-end baselines by at least 4.14 points in A/B and 3.32 points in C (Holm-adjusted *p* < 0.001). Against moment-anchored centerline stereo, a training-free solver on nnU-Net masks, the paired difference is 1.25 points in A/B (95% interval 0.01 to 2.53) and 0.63 points in C (−0.57 to 1.89); only the A/B interval lies above zero, with a Holm-adjusted signed-rank *p*-value of 0.059. DOA rises with the view factor $`\lvert\sin\varphi\rvert`$, consistent with P3, and reaches 0.75 in A/B and 0.71 in C at $`\lvert\sin\varphi\rvert\geq 0.75`$.
+**Vessel order.** DOA is 0.49 to 0.53 across the four eligible one-run methods, consistent with P1, and 0.58 to 0.70 across the two-run methods. X-Strata exceeds all 11 end-to-end baselines by at least 4.14 points in A/B and 3.32 points in C (Holm-adjusted *p* < 0.001). Against moment-anchored centerline stereo, a training-free solver on nnU-Net masks, the paired difference is 1.25 points in A/B (95% interval 0.01 to 2.53) and 0.63 points in C (−0.57 to 1.89); only the A/B interval lies above zero, with a Holm-adjusted signed-rank *p*-value of 0.059. DOA rises with the view factor |sin φ|, consistent with P3, and reaches 0.75 in A/B and 0.71 in C at |sin φ| ≥ 0.75.
 
 ### Two-run comparisons
 
@@ -381,7 +381,7 @@ Each row is one configuration at its assigned input budget. Cells give patient m
 
 ## Limitations
 
-- **View geometry.** Order accuracy rises by about 20 points from the narrowest to the widest view bin in both cohorts. At small $`\lvert\sin\varphi\rvert`$, the variance of the moment anchor is amplified by $`1/\sin^2\varphi`$, and a vessel close to the sac can produce nearly identical partner positions for both signs.
+- **View geometry.** Order accuracy rises by about 20 points from the narrowest to the widest view bin in both cohorts. At small |sin φ|, the variance of the moment anchor is amplified by $`1/\sin^2\varphi`$, and a vessel close to the sac can produce nearly identical partner positions for both signs.
 - **Projection assumptions.** Mask truncation and misregistration can shift the layer centroids at any angle, and magnification changes or patient movement between acquisitions can violate the assumed parallel projection.
 - **3D shape.** Different surfaces can produce the same two rims, and agreement in sac volume can coexist with local errors at the neck or boundary.
 - **External validity.** Center C shares the scanner vendor with Centers A and B. Changes in acquisition can affect bolus sampling and centerline localization.
