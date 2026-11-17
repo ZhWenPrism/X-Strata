@@ -4,7 +4,6 @@
 
 ### Separating Aneurysms and Overlapping Vessels into Layers from 2D X-ray Angiography
 
-[![Paper](https://img.shields.io/badge/Paper-under_review-4C78A8?style=flat-square)](#release-status)
 [![Code](https://img.shields.io/badge/Code-after_publication-8B5CF6?style=flat-square)](#release-status)
 [![Input](https://img.shields.io/badge/Input-2D_cine_DSA-2A9D8F?style=flat-square)](#overview)
 [![Evaluation](https://img.shields.io/badge/Evaluation-3_centers%2C_220_patients-E69F00?style=flat-square)](#data-and-evaluation)
